@@ -1,0 +1,331 @@
+# Test: normal_one_user
+server startup: Ok
+client_74407 joins #channel_79561: Ok
+client_74407 sends message on #channel_79561: Ok
+client_74407 sends message on #channel_79561: Ok
+client_74407 leaves #channel_79561: Ok
+=ERROR REPORT==== 22-May-2021::01:22:44.041164 ===
+Error in process <0.88.0> with exit value:
+{badarg,[{genserver,request,3,[{file,"lib/genserver.erl"},{line,48}]}]}
+
+=ERROR REPORT==== 22-May-2021::01:22:44.041293 ===
+Error in process <0.89.0> with exit value:
+{badarg,[{genserver,request,3,[{file,"lib/genserver.erl"},{line,48}]}]}
+
+
+# Test: write_receive
+server startup: Ok
+client_69194 joins #channel_41934: Ok
+client_42029 joins #channel_41934: Ok
+client_69194 sends message on #channel_41934: Ok
+=ERROR REPORT==== 22-May-2021::01:22:44.091536 ===
+Error in process <0.100.0> with exit value:
+{badarg,[{genserver,request,3,[{file,"lib/genserver.erl"},{line,48}]}]}
+
+=ERROR REPORT==== 22-May-2021::01:22:44.091548 ===
+Error in process <0.101.0> with exit value:
+{badarg,[{genserver,request,3,[{file,"lib/genserver.erl"},{line,48}]}]}
+
+test_client: write_receive_test...*timed out*
+undefined
+=======================================================
+  Failed: 0.  Skipped: 0.  Passed: 1.
+One or more tests were cancelled.
+skrivenbok@ubuntu:~/Desktop/Koden/cchat-skeleton$ make -s run_tests
+client.erl:56: Warning: variable 'Channel' is unused
+client.erl:95: Warning: variable 'Data' is unused
+
+# Test: normal_one_user
+server startup: Ok
+client_72039 joins #channel_59051: Ok
+client_72039 sends message on #channel_59051: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: normal_one_user_test...*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from test_client:normal_one_user_test/0 (lib/test_client.erl, line 234)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: write_receive
+server startup: Ok
+client_73116 joins #channel_94391: Ok
+client_76037 joins #channel_94391: Ok
+client_73116 sends message on #channel_94391: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: write_receive_test...*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from test_client:write_receive_test/0 (lib/test_client.erl, line 253)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: write_receive_2
+server startup: Ok
+client_3884 joins #channel_43831: Ok
+client_3884 joins #channel_32418: Ok
+client_21366 joins #channel_43831: Ok
+client_21366 joins #channel_13218: Ok
+client_21366 joins #channel_32418: Ok
+client_95833 joins #channel_13218: Ok
+client_95833 joins #channel_32418: Ok
+client_3884 sends message on #channel_43831: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+
+# Test: join_nonresponding_server
+test_client: write_receive_2_test...server startup: Ok
+Wait a few seconds for timeout...
+*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from test_client:write_receive_2_test/0 (lib/test_client.erl, line 297)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**throw:"Test failed"
+  output:<<"">>
+
+test_client: join_nonresponding_server_test...*failed*
+in function test_client:request/2 (lib/test_client.erl, line 107)
+in call from test_client:join_nonresponding_server_test/0 (lib/test_client.erl, line 325)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**exit:"Timeout"
+  output:<<"">>
+
+
+# Test: join_no_server
+server startup: Ok
+stopping server: Ok
+Wait a few seconds for timeout...
+client_52942 joins #channel fails: Ok
+
+# Test: join_already_joined
+server startup: Ok
+client_97174 joins #channel_53118: Ok
+client_97174 joins #channel_53118 fails: Ok
+
+# Test: write_not_joined1
+server startup: Ok
+client_89839 joins #channel_82533: Ok
+client_89839 leaves #channel_82533: Ok
+client_89839 writing to #channel_82533 fails: Passes
+Expected: {error,user_not_joined,_}
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: write_not_joined1_test...*failed*
+in function test_client:assert_error/3 (lib/test_client.erl, line 92)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: write_not_joined2
+server startup: Ok
+client_89034 joins #channel_88394: Ok
+client_98648 writing to #channel_88394 fails: Passes
+Expected: {error,user_not_joined,_}
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: write_not_joined2_test...*failed*
+in function test_client:assert_error/3 (lib/test_client.erl, line 92)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: write_not_joined3
+server startup: Ok
+client_84349 writing to #channel_24780 fails: Ok
+
+# Test: leave_not_joined
+server startup: Ok
+client_97258 joins #channel_37227: Ok
+client_43701 leaving #channel_37227 fails: Ok
+
+# Test: leave_no_server
+server startup: Ok
+client_38162 joins #channel: Ok
+killing server: Ok
+client_38162 leaves #channel: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: leave_no_server_test...*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: leave_already_leaved
+server startup: Ok
+client_24357 joins #channel_69551: Ok
+client_24357 leaves #channel_69551: Ok
+client_24357 leaving #channel_69551 fails: Ok
+
+# Test: nick_change - Only relevant for the distinction assignment!
+server startup: Ok
+client_99600 joins #channel_30701: Ok
+client_85285 joins #channel_30701: Ok
+client_99600 changes nick to user_68642: Ok
+client_99600 sends message on #channel_30701: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: nick_change_test...*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from test_client:nick_change_test/0 (lib/test_client.erl, line 442)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: nick_collide - Only relevant for the distinction assignment!
+server startup: Ok
+client_87684 joins #channel_44531: Ok
+client_23128 joins #channel_44531: Ok
+client_87684 changing nick to user_71060 fails: Passes
+Expected: {error,nick_taken,_}
+     Got: ok
+
+test_client: nick_collide_test...*failed*
+in function test_client:assert_error/3 (lib/test_client.erl, line 92)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: nick_swap - Only relevant for the distinction assignment!
+server startup: Ok
+client_79652 joins #channel_97429: Ok
+client_75350 joins #channel_97429: Ok
+client_79652 changes nick to user_79158: Ok
+client_75350 changes nick to user_21109: Ok
+client_79652 changes nick to user_41904: Ok
+
+# Test: nick_change_hack - Only relevant for the distinction assignment!
+server startup: Ok
+client_98135 joins #channel_42449: Ok
+client_62614 joins #channel_21358: Ok
+client_98135 changes nick to user_22622: Ok
+client_62614 changes nick to user_42779: Ok
+client_98135 sends message on #channel_42449 fails: Passes
+Expected: {error,user_not_joined,_}
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: nick_change_hack_test...*failed*
+in function test_client:assert_error/3 (lib/test_client.erl, line 92)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: message_throughput
+server startup: Ok
+spawning 3 channels with 3 clients each: Ok
+sending 2 messages per client
+messages: 0 successful, 36 timed out, 36 total
+all messages successful: Fail
+test_client: message_throughput_test...*failed*
+in function test_client:assert/2 (lib/test_client.erl, line 60)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 325)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: messages_no_server1
+server startup: Ok
+client_43957 joins #channel_92226: Ok
+client_53720 joins #channel_92226: Ok
+killing server: Ok
+client_43957 sends message on #channel_92226: Fail
+Expected: ok
+     Got: {error,server_not_reached,"Server wasnt reachable"}
+
+test_client: messages_no_server1_test...*failed*
+in function test_client:assert/3 (lib/test_client.erl, line 72)
+in call from test_client:messages_no_server1_test/0 (lib/test_client.erl, line 610)
+in call from eunit_test:'-mf_wrapper/2-fun-0-'/2 (eunit_test.erl, line 273)
+in call from eunit_test:run_testfun/1 (eunit_test.erl, line 71)
+in call from eunit_proc:run_test/1 (eunit_proc.erl, line 510)
+in call from eunit_proc:with_timeout/3 (eunit_proc.erl, line 335)
+in call from eunit_proc:handle_test/2 (eunit_proc.erl, line 493)
+in call from eunit_proc:tests_inorder/3 (eunit_proc.erl, line 435)
+**throw:"Test failed"
+  output:<<"">>
+
+
+# Test: messages_no_server2
+server startup: Ok
+client_39288 joins #channel_17014: Ok
+stopping server: Ok
+Wait a few seconds for timeout...
+client_39288 writing to #channel_17014 fails: Ok
+=======================================================
+  Failed: 12.  Skipped: 0.  Passed: 7.
